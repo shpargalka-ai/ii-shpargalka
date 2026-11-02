@@ -47,60 +47,91 @@
 
   <main id="main" tabindex="-1">
     <section class="hero">
-      <div class="wrap">
-        <h1>План квеста за 5 минут</h1>
-        <p class="lead">Соберите промпт для нейросети — и она подготовит вам игровой урок. Для учителей 5–11 классов.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="constructor.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-wand"></use></svg>Собрать промпт</a>
-          <a class="btn btn-outline btn-lg" href="prompts.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-cards"></use></svg>Готовые промпты</a>
-          <a class="btn btn-outline btn-lg" href="how.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-book"></use></svg>Как это работает</a>
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-spark"></use></svg></span>Для учителей 5–11 классов · без регистрации</p>
+          <h1>План квеста <span class="hl">за 5 минут</span></h1>
+          <p class="lead">Соберите промпт для нейросети — и она подготовит вам игровой урок: легенду, этапы, задания и ответы.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="constructor.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-wand"></use></svg>Собрать промпт</a>
+            <a class="btn btn-outline btn-lg" href="prompts.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-cards"></use></svg>Готовые промпты</a>
+            <a class="btn btn-outline btn-lg" href="how.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-book"></use></svg>Как это работает</a>
+          </div>
         </div>
+        <div class="hero-art" data-art="hero" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Коротко в цифрах" style="padding-top:48px">
+      <div class="wrap">
+        <ul class="stats reveal" style="list-style:none;margin:0;padding:0">
+          <li class="stat"><span class="stat-num">18</span><span class="stat-label">готовых промптов</span></li>
+          <li class="stat"><span class="stat-num">9</span><span class="stat-label">игровых жанров</span></li>
+          <li class="stat"><span class="stat-num">5&nbsp;мин</span><span class="stat-label">на запрос вместо часов подготовки</span></li>
+          <li class="stat"><span class="stat-num">0</span><span class="stat-label">регистраций и данных о вас</span></li>
+        </ul>
       </div>
     </section>
 
     <section class="section" aria-labelledby="steps-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="steps-title">4 шага</h2>
-          <p>Регистрироваться не нужно. Сайт ничего не отправляет — он только помогает написать запрос.</p>
+        <div class="section-head reveal">
+          <span class="section-kicker">Как пользоваться</span>
+          <h2 id="steps-title">4 шага — и план готов</h2>
+          <p>Сайт ничего не отправляет и не подключается к нейросетям сам — он помогает написать хороший запрос.</p>
         </div>
-        <ol class="grid grid-4" style="list-style:none;margin:0;padding:0">
+        <ol class="grid grid-4 reveal" style="list-style:none;margin:0;padding:0">
           <li class="card step">
+            <span class="step-big" aria-hidden="true">01</span>
             <span class="step-num"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-sliders"></use></svg></span>
-            <span class="step-label">Шаг 1</span>
-            <h3>Выберите</h3>
+            <h3><span class="step-label">Шаг 1</span>Выберите</h3>
             <p>Предмет, класс, тему и жанр игры.</p>
           </li>
           <li class="card step">
+            <span class="step-big" aria-hidden="true">02</span>
             <span class="step-num"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-pencil"></use></svg></span>
-            <span class="step-label">Шаг 2</span>
-            <h3>Допишите</h3>
+            <h3><span class="step-label">Шаг 2</span>Допишите</h3>
             <p>Жёлтые места: цель урока и особенности класса.</p>
           </li>
           <li class="card step">
+            <span class="step-big" aria-hidden="true">03</span>
             <span class="step-num"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg></span>
-            <span class="step-label">Шаг 3</span>
-            <h3>Скопируйте</h3>
+            <h3><span class="step-label">Шаг 3</span>Скопируйте</h3>
             <p>Одна кнопка — и готовый промпт у вас.</p>
           </li>
           <li class="card step">
+            <span class="step-big" aria-hidden="true">04</span>
             <span class="step-num"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"></use></svg></span>
-            <span class="step-label">Шаг 4</span>
-            <h3>Вставьте в нейросеть</h3>
+            <h3><span class="step-label">Шаг 4</span>Вставьте в нейросеть</h3>
             <p>GigaChat, Алиса или DeepSeek соберут план. Проверьте его.</p>
           </li>
         </ol>
       </div>
     </section>
 
+    <section class="section" aria-labelledby="genres-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="section-kicker">Жанры</span>
+          <h2 id="genres-title">Детектив, суд или эко-триллер?</h2>
+          <p>Нажмите на жанр — и увидите готовые промпты для него.</p>
+        </div>
+        <div class="genre-strip reveal" data-genre-strip>
+          <a class="genre-chip" href="prompts.html">Все готовые промпты</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section" aria-labelledby="ba-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="ba-title">Почему важно, как вы спросите</h2>
+        <div class="section-head reveal">
+          <span class="section-kicker">До и после</span>
+          <h2 id="ba-title">Важно, <span class="hl">как</span> вы спросите</h2>
           <p>Одна и та же нейросеть, одна и та же тема. Разница — только в запросе.</p>
         </div>
-        <div class="ba">
+        <div class="ba reveal">
           <article class="ba-col ba-bad" aria-labelledby="ba-bad-title">
+            <span class="ba-sticker" aria-hidden="true">Скучно</span>
             <h3 class="ba-title" id="ba-bad-title"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg>Так обычно спрашивают</h3>
             <p class="ba-label">Запрос</p>
             <p class="ba-prompt">Придумай квест по истории</p>
@@ -115,6 +146,7 @@
             </div>
           </article>
           <article class="ba-col ba-good" aria-labelledby="ba-good-title">
+            <span class="ba-sticker" aria-hidden="true">Готово к уроку</span>
             <h3 class="ba-title" id="ba-good-title"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg>Так спрашивают с ИИ-Шпаргалкой</h3>
             <p class="ba-label">Запрос</p>
             <p class="ba-prompt">Ты — методист и учитель истории с 15-летним стажем.
@@ -141,10 +173,10 @@
 
     <section class="section" aria-labelledby="safe-title">
       <div class="wrap">
-        <div class="callout">
+        <div class="callout reveal">
           <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg>
           <div>
-            <h2 id="safe-title" style="font-size:1.15rem;margin-bottom:.3em">Главное правило</h2>
+            <h2 id="safe-title" style="font-size:1.2rem;margin-bottom:.3em">Главное правило</h2>
             <p>Не вводите в нейросеть фамилии, диагнозы и адреса учеников. Пишите «ученик А», «в классе 3 ребёнка с ОВЗ». <a href="safety.html">Подробнее о безопасности</a></p>
           </div>
         </div>
@@ -153,9 +185,10 @@
 
     <section class="section" aria-labelledby="share-title">
       <div class="wrap">
-        <div class="card qr-promo">
+        <div class="card qr-promo reveal">
           <div class="qr-box"><canvas data-site-qr width="200" height="200" role="img" aria-label="QR-код со ссылкой на этот сайт"></canvas></div>
           <div>
+            <span class="section-kicker">Поделиться</span>
             <h2 id="share-title">Покажите коллегам</h2>
             <p>Выведите этот QR-код на экран на педсовете или методобъединении: коллеги наведут камеру телефона и сразу откроют сайт.</p>
             <p class="muted" data-site-qr-note></p>
@@ -163,6 +196,19 @@
               <button type="button" class="btn btn-outline" data-site-qr-big><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-qr"></use></svg>Показать крупно</button>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta-band reveal">
+          <div class="cta-deco" data-art="cta" aria-hidden="true"></div>
+          <div>
+            <h2 id="cta-title">Первый промпт — за 5 минут</h2>
+            <p>Заполните, что знаете, — остальное подскажут жёлтые подсказки.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="constructor.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-wand"></use></svg>Открыть конструктор</a>
         </div>
       </div>
     </section>

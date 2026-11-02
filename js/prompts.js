@@ -46,7 +46,7 @@
     var ex = p.example || {};
 
     return '<article class="card prompt-card" id="p-' + App.escape(p.id) + '" data-id="' + App.escape(p.id) + '" aria-labelledby="t-' + App.escape(p.id) + '">' +
-      '<div class="tags">' + tags + '</div>' +
+      '<div class="prompt-card-top">' + App.genreBadge(p.genre) + '<div class="tags">' + tags + '</div></div>' +
       '<h3 id="t-' + App.escape(p.id) + '">' + App.escape(p.title) + '</h3>' +
       '<p class="summary">' + App.escape(p.summary) + '</p>' +
       '<p class="muted" style="margin:0;font-size:.88rem">Подходит: ' + App.escape(subjects) + '</p>' +
@@ -220,6 +220,9 @@
 
   // Ссылка вида prompts.html#p-id — подсветить нужную карточку
   if (App.qs('fav') === '1') el.fav.checked = true;
+  // prompts.html?genre=Детектив — переход из полосы жанров на главной
+  var genreParam = App.qs('genre');
+  if (genreParam) el.genre.value = genreParam;
   apply();
   if (location.hash) {
     var target = document.getElementById(location.hash.slice(1));

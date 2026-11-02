@@ -43,6 +43,15 @@
 
   .print-only { display: block !important; }
 
+  /* Дизайн 2.0: без точек на фоне, иллюстраций и теней */
+  body { background-image: none !important; }
+  .page-art, .hero-art, .cta-deco, .genre-badge, .step-big { display: none !important; }
+  .page-head { display: block; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .preview-card, .ba-good, dialog.modal { box-shadow: none !important; }
+  .hl { background: none !important; }
+  .preview-head h2::before { display: none !important; }
+
   .wrap { max-width: none; padding: 0; }
   .section, .page-head { padding-top: 0; }
   .site-footer, main { margin: 0; }

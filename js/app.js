@@ -109,8 +109,204 @@
     bulb: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
     target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".5"/>',
     folder: '<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
-    plus: '<path d="M12 5v14M5 12h14"/>'
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    // Жанры
+    mask: '<path d="M4 6c3 1.5 13 1.5 16 0v5c0 5-3.5 8-8 8s-8-3-8-8z"/><path d="M8.5 11.5c.7-.6 1.8-.6 2.5 0M13 11.5c.7-.6 1.8-.6 2.5 0M9.5 15.5c1.5 1 3.5 1 5 0"/>',
+    coins: '<ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path d="M5 10v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4"/><path d="M5 14v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4"/>',
+    leaf: '<path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19c3-4 6-6.5 10-8.5"/>',
+    flag: '<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>',
+    bolt: '<path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/>',
+    flask: '<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 14h9"/>',
+    scales: '<path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
+    news: '<path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12.5h7M7 16h4"/>'
   };
+
+  /* ---------- Жанры: иконка и цвет значка ---------- */
+
+  var GENRES = {
+    'Детектив': ['search', '#8ec9f5'],
+    'Ролевая игра': ['mask', '#ffc2d1'],
+    'Экономическая симуляция': ['coins', '#ffd93d'],
+    'Эко-триллер': ['leaf', '#c6ef6b'],
+    'Станционная игра': ['flag', '#ff8a65'],
+    'Квиз-баттл': ['bolt', '#ffb84d'],
+    'Расследование': ['flask', '#9fe0c4'],
+    'Суд над историческим явлением': ['scales', '#e8d9b8'],
+    'Редакция газеты': ['news', '#d9eefc'],
+    'Правка ответа ИИ': ['wand', '#e7e2d6']
+  };
+
+  App.genreBadge = function (genre) {
+    var g = GENRES[genre] || ['spark', '#c6ef6b'];
+    return '<span class="genre-badge" style="--tint:' + g[1] + '" aria-hidden="true">' + App.icon(g[0]) + '</span>';
+  };
+
+  /* ---------- Иллюстрации-стикеры (свои, inline SVG) ----------
+     Цвета задаются классами .fp/.fy/.fc… в style.css, поэтому работают обе темы. */
+
+  var ART = {
+    hero:
+      '<svg viewBox="0 0 520 470" class="art" aria-hidden="true" focusable="false">' +
+      '<path class="fb1" d="M70 120C92 42 222 8 322 38s202 62 180 172-62 214-202 232S18 386 30 274 48 200 70 120z"/>' +
+      '<circle class="fb2" cx="438" cy="96" r="58"/>' +
+      // карта квеста
+      '<g transform="rotate(7 380 330)">' +
+        '<rect class="fi" x="280" y="258" width="214" height="158" rx="22"/>' +
+        '<rect class="fs k" x="272" y="250" width="214" height="158" rx="22"/>' +
+        '<path class="nf k dash" d="M302 378c30-42 62 12 92-30s48-30 66-58"/>' +
+        '<circle class="fp k" cx="302" cy="378" r="9"/>' +
+        '<path class="nf k" d="M392 326l14 14M406 326l-14 14"/>' +
+        '<path class="nf k" d="M458 296v-62"/><path class="fc k" d="M458 234h28l-8 11 8 11h-28"/>' +
+      '</g>' +
+      // окно с промптом
+      '<g transform="rotate(-3 220 190)">' +
+        '<rect class="fi" x="68" y="88" width="320" height="230" rx="24"/>' +
+        '<rect class="fp k" x="58" y="78" width="320" height="230" rx="24"/>' +
+        '<path class="nf k" d="M58 124h320"/>' +
+        '<circle class="fc k2" cx="86" cy="101" r="7"/><circle class="fy k2" cx="110" cy="101" r="7"/><circle class="fg k2" cx="134" cy="101" r="7"/>' +
+        '<rect class="fln" x="84" y="150" width="190" height="12" rx="6"/>' +
+        '<rect class="fln" x="84" y="176" width="246" height="12" rx="6"/>' +
+        '<rect class="fy k2" x="84" y="200" width="160" height="28" rx="9"/><rect class="fi" x="98" y="211" width="96" height="6" rx="3"/>' +
+        '<rect class="fln" x="84" y="242" width="214" height="12" rx="6"/>' +
+        '<rect class="fln" x="84" y="266" width="120" height="12" rx="6"/>' +
+        '<rect class="fg k2" x="262" y="258" width="92" height="34" rx="17"/><path class="nf" style="stroke:var(--art-paper);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round" d="M296 275l7 7 14-14"/>' +
+      '</g>' +
+      // таймер «5 мин»
+      '<g class="wobble"><circle class="fi" cx="66" cy="82" r="40"/><circle class="fc k" cx="60" cy="76" r="40"/>' +
+      '<text class="txt fi" x="60" y="72" text-anchor="middle" font-size="24">5</text><text class="txt fi" x="60" y="96" text-anchor="middle" font-size="16">мин</text></g>' +
+      // звезда
+      '<path class="fy k wobble" d="M446 44l12 30 30 12-30 12-12 30-12-30-30-12 30-12z"/>' +
+      // молния
+      '<g class="wobble"><circle class="fl k" cx="62" cy="372" r="40"/><path class="fp k" d="M68 344l-20 32h15l-5 24 20-32H64z"/></g>' +
+      // карандаш
+      '<g transform="rotate(-32 200 410)"><path class="fc k" d="M138 398h-12a4 4 0 0 0-4 4v16a4 4 0 0 0 4 4h12z"/><rect class="fy k" x="138" y="398" width="104" height="24"/><path class="fp k" d="M242 398l28 12-28 12z"/><path class="fi" d="M262 406l8 4-8 4z"/></g>' +
+      '<path class="fi" d="M238 26l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>' +
+      '<circle class="fc" cx="504" cy="232" r="6"/><circle class="fg" cx="18" cy="226" r="5"/><circle class="fy" cx="300" cy="448" r="6"/>' +
+      '</svg>',
+
+    constructor:
+      '<svg viewBox="0 0 200 200" class="art" aria-hidden="true" focusable="false">' +
+      '<circle class="fb1" cx="100" cy="104" r="88"/>' +
+      '<g transform="rotate(-6 95 100)"><rect class="fi" x="47" y="57" width="110" height="100" rx="18"/><rect class="fp k" x="40" y="50" width="110" height="100" rx="18"/>' +
+      '<path class="nf k" d="M60 80h70M60 102h70M60 124h70"/>' +
+      '<circle class="fy k" cx="84" cy="80" r="9"/><circle class="fs k" cx="114" cy="102" r="9"/><circle class="fc k" cx="72" cy="124" r="9"/></g>' +
+      '<path class="fi" d="M124 176l7 6 42-48-7-6z"/>' +
+      '<path class="fy k wobble" d="M172 100l6 14 14 6-14 6-6 14-6-14-14-6 14-6z"/>' +
+      '<circle class="fg" cx="30" cy="40" r="6"/>' +
+      '</svg>',
+
+    prompts:
+      '<svg viewBox="0 0 200 200" class="art" aria-hidden="true" focusable="false">' +
+      '<circle class="fb2" cx="100" cy="104" r="88"/>' +
+      '<rect class="fc k" x="50" y="44" width="96" height="120" rx="16" transform="rotate(-13 98 104)"/>' +
+      '<rect class="fs k" x="54" y="44" width="96" height="120" rx="16" transform="rotate(7 102 104)"/>' +
+      '<g transform="rotate(-2 100 108)"><rect class="fp k" x="52" y="48" width="96" height="120" rx="16"/>' +
+      '<rect class="fy" x="66" y="66" width="46" height="12" rx="6"/><rect class="fln" x="66" y="90" width="66" height="8" rx="4"/><rect class="fln" x="66" y="106" width="56" height="8" rx="4"/><rect class="fln" x="66" y="122" width="62" height="8" rx="4"/>' +
+      '<circle class="fg k2" cx="128" cy="148" r="10"/></g>' +
+      '<path class="fy k wobble" d="M164 30l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/>' +
+      '</svg>',
+
+    how:
+      '<svg viewBox="0 0 200 200" class="art" aria-hidden="true" focusable="false">' +
+      '<circle class="fb1" cx="100" cy="110" r="86"/>' +
+      '<path class="fp k" d="M26 160c22-10 48-10 72 2V94c-24-12-50-12-72-2z"/>' +
+      '<path class="fp k" d="M174 160c-22-10-48-10-76 2V94c28-12 54-12 76-2z"/>' +
+      '<path class="nf sln" style="stroke-width:5;stroke-linecap:round" d="M42 112c14-5 28-5 42 1M42 130c14-5 28-5 42 1M114 113c14-6 30-6 46-1M114 131c14-6 30-6 46-1"/>' +
+      '<g class="wobble"><path class="fy k" d="M100 14a25 25 0 0 0-15 45c3 2.5 5 6 5 10h20c0-4 2-7.5 5-10a25 25 0 0 0-15-45z"/><rect class="fs k" x="90" y="69" width="20" height="11" rx="3"/></g>' +
+      '<path class="nf k" d="M58 30l10 8M142 30l-10 8M50 62h12M150 62h-12"/>' +
+      '</svg>',
+
+    safety:
+      '<svg viewBox="0 0 200 200" class="art" aria-hidden="true" focusable="false">' +
+      '<circle class="fb1" cx="100" cy="104" r="88"/>' +
+      '<path class="fi" d="M107 31l52 18v38c0 34-22 58-52 68-30-10-52-34-52-68V49z"/>' +
+      '<path class="fg k" d="M100 24l52 18v38c0 34-22 58-52 68-30-10-52-34-52-68V42z"/>' +
+      '<path class="kp" d="M76 84l16 16 32-34"/>' +
+      '<g class="wobble"><rect class="fy k" x="126" y="130" width="52" height="42" rx="10"/><path class="nf k" d="M139 130v-10a13 13 0 0 1 26 0v10"/><circle class="fi" cx="152" cy="150" r="5"/></g>' +
+      '<circle class="fc" cx="32" cy="160" r="7"/>' +
+      '</svg>',
+
+    docs:
+      '<svg viewBox="0 0 200 200" class="art" aria-hidden="true" focusable="false">' +
+      '<circle class="fb2" cx="100" cy="104" r="88"/>' +
+      '<path class="fc k" d="M28 72a10 10 0 0 1 10-10h34l12 14h78a10 10 0 0 1 10 10v70a10 10 0 0 1-10 10H38a10 10 0 0 1-10-10z"/>' +
+      '<g transform="rotate(8 110 90)"><path class="fp k" d="M76 34h56l20 20v86H76z"/><path class="nf k" d="M132 34v20h20"/>' +
+      '<rect class="fln" x="90" y="70" width="46" height="8" rx="4"/><rect class="fln" x="90" y="86" width="50" height="8" rx="4"/><rect class="fln" x="90" y="102" width="36" height="8" rx="4"/></g>' +
+      '<path class="fs k" d="M28 104h144v52a10 10 0 0 1-10 10H38a10 10 0 0 1-10-10z"/>' +
+      '<g class="wobble"><circle class="fy k" cx="152" cy="152" r="22"/><path class="nf k" d="M142 152l7 7 13-14"/></g>' +
+      '</svg>',
+
+    about:
+      '<svg viewBox="0 0 200 200" class="art" aria-hidden="true" focusable="false">' +
+      '<circle class="fb3" cx="100" cy="104" r="88"/>' +
+      '<circle class="fp k" cx="92" cy="112" r="62"/><circle class="fc k" cx="92" cy="112" r="42"/><circle class="fp k" cx="92" cy="112" r="22"/><circle class="fi" cx="92" cy="112" r="7"/>' +
+      '<path class="nf k" style="stroke-width:5" d="M94 110l66-66"/>' +
+      '<path class="fy k wobble" d="M160 44l2-24 14 10 18 2-12 14z"/>' +
+      '<path class="fy k" d="M30 40l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>' +
+      '</svg>',
+
+    my:
+      '<svg viewBox="0 0 200 200" class="art" aria-hidden="true" focusable="false">' +
+      '<circle class="fb2" cx="100" cy="104" r="88"/>' +
+      '<path class="fi" d="M68 38h76v130l-38-26-38 26z"/>' +
+      '<path class="fg k" d="M60 30h76v130l-38-26-38 26z"/>' +
+      '<path class="fy k wobble" d="M98 56l9 18 20 3-14 14 3 20-18-9-18 9 3-20-14-14 20-3z"/>' +
+      '<g class="wobble"><circle class="fc k" cx="160" cy="62" r="17"/><path class="nf k" d="M160 54v16M152 62h16"/></g>' +
+      '</svg>',
+
+    cta:
+      '<svg viewBox="0 0 220 220" class="art" aria-hidden="true" focusable="false">' +
+      '<circle cx="130" cy="130" r="88" style="fill:#2a3a33"/>' +
+      '<path class="fy" d="M110 30l18 44 44 18-44 18-18 44-18-44-44-18 44-18z"/>' +
+      '<circle class="fl" cx="180" cy="60" r="14"/><circle class="fc" cx="60" cy="170" r="10"/>' +
+      '</svg>'
+  };
+
+  function injectArt() {
+    var els = document.querySelectorAll('[data-art]');
+    for (var i = 0; i < els.length; i++) {
+      var a = ART[els[i].getAttribute('data-art')];
+      if (a) els[i].innerHTML = a;
+    }
+  }
+
+  /* ---------- Полоса жанров на главной ---------- */
+
+  function initGenreStrip() {
+    var box = document.querySelector('[data-genre-strip]');
+    if (!box || !window.FIELDS) return;
+    var prompts = window.PROMPTS || [];
+    box.innerHTML = window.FIELDS.genres.map(function (g) {
+      var n = prompts.filter(function (p) { return p.genre === g; }).length;
+      return '<a class="genre-chip" href="prompts.html?genre=' + encodeURIComponent(g) + '">' + App.genreBadge(g) +
+        '<span>' + App.escape(g) + (n ? ' <span class="muted">· ' + n + '</span>' : '') + '</span></a>';
+    }).join('');
+  }
+
+  /* ---------- Мягкое появление блоков при прокрутке ---------- */
+
+  function initReveal() {
+    var els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      for (var i = 0; i < els.length; i++) els[i].classList.add('is-in');
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -40px 0px' });
+    for (var j = 0; j < els.length; j++) io.observe(els[j]);
+    // При печати показываем всё сразу
+    window.addEventListener('beforeprint', function () {
+      for (var k = 0; k < els.length; k++) els[k].classList.add('is-in');
+    });
+  }
 
   function injectSprite() {
     var s = '<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">';
@@ -540,6 +736,9 @@
   /* ---------- Запуск ---------- */
 
   injectSprite();
+  injectArt();
+  initGenreStrip();
+  initReveal();
   initTheme();
   initMenu();
   initFeedback();
