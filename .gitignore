@@ -1,0 +1,4 @@
+# Служебные файлы, которые не нужны на сайте
+.DS_Store
+.claude/
+TZ-ii-shpargalka.md

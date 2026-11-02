@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Конструктор промпта — ИИ-Шпаргалка</title>
+  <meta name="description" content="Заполните предмет, класс, тему и жанр — и получите готовый промпт для нейросети, которая составит план игрового урока или квеста.">
+  <meta name="theme-color" content="#1d6a56">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css">
+  <script>(function(){var d=document.documentElement;try{var t=JSON.parse(localStorage.getItem('iish:theme'));if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}d.setAttribute('data-theme-effective',d.getAttribute('data-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));if(/^https?:$/.test(location.protocol)){var m=document.createElement("link");m.rel="manifest";m.href="manifest.webmanifest";document.head.appendChild(m)}})()</script>
+</head>
+<body class="page-constructor">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="logo" href="index.html" aria-label="ИИ-Шпаргалка, на главную">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M15 7l2.3 6.4L23.5 16l-6.2 2.6L15 25l-2.3-6.4L6.5 16l6.2-2.6z" style="fill:var(--on-accent)"/><path d="M23.5 5.5l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z" style="fill:var(--on-accent)"/></svg>
+        <span>ИИ-Шпаргалка</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Основное меню">
+        <ul>
+          <li><a href="constructor.html" aria-current="page">Конструктор</a></li>
+          <li><a href="prompts.html">Готовые промпты</a></li>
+          <li><a href="how.html">Как это работает</a></li>
+          <li><a href="safety.html">Безопасность</a></li>
+          <li><a href="docs.html">Документы</a></li>
+          <li><a href="about.html">О проекте</a></li>
+        </ul>
+      </nav>
+      <a class="my-link" href="my.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-save"></use></svg><span class="my-text">Мои</span> <span class="badge" data-my-count data-count="0">0</span></a>
+      <button type="button" class="icon-btn theme-btn" data-theme-toggle aria-label="Переключить тему">
+        <svg class="ico i-sun" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>
+        <svg class="ico i-moon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>
+      </button>
+      <button type="button" class="icon-btn menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <div class="page-head">
+        <h1>Конструктор промпта</h1>
+        <p class="lead">Заполните то, что знаете. Пустые места подсветятся жёлтым — промпт соберётся в любом случае.</p>
+      </div>
+
+      <div class="builder">
+        <form class="builder-form" id="builder-form" autocomplete="off" novalidate>
+          <div class="card">
+            <h2 class="form-step-title"><span class="n" aria-hidden="true">1</span>Основа</h2>
+
+            <div class="field">
+              <label for="template">Шаблон</label>
+              <span class="field-hint" id="template-hint">«Универсальный» собирается из всех полей формы. Можно взять готовый из базы.</span>
+              <select class="select" id="template" name="template" aria-describedby="template-hint"></select>
+            </div>
+            <div class="callout template-info" id="template-info" hidden>
+              <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-bulb"></use></svg>
+              <div>
+                <p id="template-summary"></p>
+                <p style="margin-bottom:4px"><strong>Что дописать:</strong></p>
+                <ul id="template-tips" style="margin:0;padding-left:1.2em"></ul>
+              </div>
+            </div>
+
+            <div class="field" data-key="предмет">
+              <label for="subject">Предмет <span class="unused-note">не влияет на этот шаблон</span></label>
+              <select class="select" id="subject" name="subject"></select>
+              <label for="subject-custom" class="visually-hidden">Свой предмет</label>
+              <input class="input" id="subject-custom" name="subjectCustom" type="text" placeholder="Напишите свой предмет" hidden style="margin-top:8px">
+            </div>
+
+            <fieldset class="field" data-key="класс">
+              <legend>Класс <span class="unused-note">не влияет на этот шаблон</span></legend>
+              <div class="chips chips-num" id="grade-chips"></div>
+            </fieldset>
+
+            <div class="field" data-key="тема">
+              <label for="topic">Тема урока <span class="unused-note">не влияет на этот шаблон</span></label>
+              <span class="field-hint" id="topic-hint">Чем конкретнее, тем лучше: не «Египет», а «Пирамиды и фараоны Древнего Египта».</span>
+              <input class="input" id="topic" name="topic" type="text" aria-describedby="topic-hint" placeholder="Например: Агрегатные состояния вещества">
+            </div>
+
+            <div class="field" data-key="количество">
+              <label for="count">Сколько учеников в классе <span class="unused-note">не влияет на этот шаблон</span></label>
+              <input class="input" id="count" name="count" type="number" inputmode="numeric" min="1" max="60" placeholder="Например: 25" style="max-width:200px">
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="form-step-title"><span class="n" aria-hidden="true">2</span>Формат урока</h2>
+
+            <fieldset class="field" data-key="этап">
+              <legend>Этап урока <span class="unused-note">не влияет на этот шаблон</span></legend>
+              <div class="chips" id="stage-chips"></div>
+            </fieldset>
+
+            <fieldset class="field" data-key="жанр">
+              <legend>Жанр <span class="unused-note">не влияет на этот шаблон</span></legend>
+              <div class="chips" id="genre-chips"></div>
+            </fieldset>
+
+            <fieldset class="field" data-key="время" style="margin-bottom:0">
+              <legend>Время, минут <span class="unused-note">не влияет на этот шаблон</span></legend>
+              <div class="chips chips-num" id="duration-chips"></div>
+            </fieldset>
+          </div>
+
+          <div class="card">
+            <h2 class="form-step-title"><span class="n" aria-hidden="true">3</span>Цель и класс</h2>
+
+            <div class="field" data-key="цель">
+              <label for="goal">Цель урока <span class="unused-note">не влияет на этот шаблон</span></label>
+              <span class="field-hint" id="goal-hint">Что ученики должны уметь в конце урока? Пишите глаголами: объясняют, сравнивают, находят ошибку.</span>
+              <textarea class="textarea" id="goal" name="goal" rows="3" aria-describedby="goal-hint" placeholder="Например: ученики объясняют, чем отличаются три состояния вещества, и приводят примеры из жизни"></textarea>
+            </div>
+
+            <fieldset class="field" data-key="особенности">
+              <legend>Особенности класса <span class="unused-note">не влияет на этот шаблон</span></legend>
+              <div class="checks checks-2" id="features"></div>
+              <label for="features-custom" class="field-label" style="margin-top:12px;font-weight:600">Своё (необязательно)</label>
+              <input class="input" id="features-custom" name="featuresCustom" type="text" placeholder="Например: класс шумный, любит соревнования">
+            </fieldset>
+
+            <div class="field" data-key="ограничения" style="margin-bottom:0">
+              <label for="limits">Пожелания и ограничения <span class="unused-note">не влияет на этот шаблон</span></label>
+              <span class="field-hint" id="limits-hint">Необязательно. Для промптов-правок напишите здесь, что не понравилось в ответе ИИ.</span>
+              <textarea class="textarea" id="limits" name="limits" rows="2" aria-describedby="limits-hint" placeholder="Например: нет принтера, всё должно быть на доске"></textarea>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="form-step-title"><span class="n" aria-hidden="true">4</span>Что хочу на выходе</h2>
+            <fieldset class="field" data-key="формат" style="margin-bottom:0">
+              <legend class="visually-hidden">Что должно быть в ответе нейросети</legend>
+              <div class="checks checks-2" id="outputs"></div>
+            </fieldset>
+          </div>
+
+          <div class="btn-row" style="margin-top:16px">
+            <button type="button" class="btn btn-outline" id="reset-form"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-reset"></use></svg>Очистить форму</button>
+          </div>
+        </form>
+
+        <div class="builder-out">
+          <section class="card preview-card" id="preview-card" aria-labelledby="preview-title">
+            <div class="print-header print-only">ИИ-Шпаргалка · промпт для нейросети · <span data-print-title></span></div>
+            <div class="preview-head">
+              <h2 id="preview-title">Ваш промпт</h2>
+              <span class="gap-counter" id="gap-counter" aria-live="polite"></span>
+            </div>
+            <pre class="preview" id="preview" tabindex="0" aria-label="Текст промпта"></pre>
+            <div class="preview-actions">
+              <button type="button" class="btn btn-primary btn-lg btn-block" id="copy-btn"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg>Скопировать промпт</button>
+              <p class="ai-note"><strong>Открыть нейросеть.</strong> Промпт скопируется сам — останется вставить его в чат.</p>
+              <div class="ai-buttons" id="ai-buttons"></div>
+              <div class="btn-row">
+                <button type="button" class="btn btn-outline btn-sm" id="qr-btn"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-qr"></use></svg>QR-код</button>
+                <button type="button" class="btn btn-outline btn-sm" id="print-btn"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-print"></use></svg>Печать</button>
+                <button type="button" class="btn btn-outline btn-sm" id="save-btn"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-save"></use></svg>Сохранить</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <section class="section refine-block" aria-labelledby="refine-title">
+        <div class="section-head">
+          <h2 id="refine-title">Доработать ответ ИИ</h2>
+          <p>Нейросеть ответила, но не идеально? Нажмите кнопку — короткая просьба скопируется. Вставьте её в тот же чат.</p>
+        </div>
+        <div class="refine-list" id="refine-list"></div>
+      </section>
+    </div>
+
+    <a class="jump-bar no-print" id="jump-bar" href="#preview-card">
+      <span id="jump-text">Готовый промпт</span>
+      <span class="jump-go">Смотреть <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"></use></svg></span>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-in">
+      <div>
+        <p class="footer-note"><strong>ИИ-Шпаргалка</strong> — помощник учителю: промпты для нейросетей, чтобы быстрее готовить игровые уроки.</p>
+        <p class="footer-note">Сайт не собирает данные: всё, что вы сохраните, хранится только в вашем браузере.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Ссылки в подвале">
+        <a href="safety.html">Безопасность</a>
+        <a href="docs.html">Документы</a>
+        <a href="about.html">О проекте</a>
+        <a href="#" data-feedback-link>Обратная связь</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/qr.js"></script>
+  <script src="js/constructor.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* Печать: только карточка промпта / чек-лист, чёрным по белому.
+   Всё, что печатать не нужно, помечено классом .no-print или скрыто ниже. */
+
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #fff;
+    --surface: #fff;
+    --surface-2: #fff;
+    --text: #000;
+    --muted: #333;
+    --border: #999;
+    --accent: #000;
+    --accent-text: #000;
+    --accent-soft: #fff;
+    --gap-bg: #fff;
+    --gap-text: #000;
+    --gap-border: #000;
+    color-scheme: light;
+  }
+
+  @page { margin: 16mm 14mm; }
+
+  html { font-size: 12pt; }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    display: block;
+    min-height: 0;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .toast-region,
+  dialog,
+  .btn,
+  .btn-row,
+  .icon-btn,
+  .no-print,
+  nav {
+    display: none !important;
+  }
+
+  .print-only { display: block !important; }
+
+  .wrap { max-width: none; padding: 0; }
+  .section, .page-head { padding-top: 0; }
+  .site-footer, main { margin: 0; }
+
+  .card,
+  .ba-col,
+  .glossary div,
+  .steps-list > li {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    background: #fff !important;
+    break-inside: avoid;
+  }
+
+  a { color: #000 !important; text-decoration: underline; }
+
+  .preview, .prompt-text {
+    max-height: none !important;
+    overflow: visible !important;
+    font-size: 11pt;
+    color: #000;
+  }
+
+  mark.gap, .prompt-text .ph, .tips, .todo {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    border: 1px dashed #000;
+  }
+  mark.gap::before { content: "____ "; }
+
+  .print-header {
+    display: block !important;
+    margin: 0 0 8mm;
+    padding-bottom: 3mm;
+    border-bottom: 2px solid #000;
+    font-size: 10pt;
+  }
+
+  /* Конструктор: печатаем только правую колонку с промптом */
+  .page-constructor .page-head,
+  .page-constructor .builder-form,
+  .page-constructor .refine-block,
+  .page-constructor .preview-actions { display: none !important; }
+  .page-constructor .builder { display: block; }
+  .page-constructor .builder-out { position: static; }
+
+  /* Печать одной карточки из базы */
+  body.print-one .prompt-card:not(.is-printing),
+  body.print-one .filters-card,
+  body.print-one .results-bar,
+  body.print-one .page-head,
+  body.print-one .empty,
+  body.print-one .tabs,
+  body.print-one .saved-list { display: none !important; }
+  body.print-one .prompt-list { display: block; }
+
+  /* База промптов целиком: фильтры не печатаем */
+  .filters-card, .results-bar, .empty { display: none !important; }
+  .prompt-list { display: block; }
+  .prompt-card { margin-bottom: 8mm; break-inside: auto !important; }
+
+  /* Карточка конструктора: без рамки и счётчика пропусков */
+  .preview-card { border: 0 !important; }
+  .preview-head { padding-left: 0; padding-right: 0; border-bottom: 1px solid #000; }
+  .preview { padding-left: 0; padding-right: 0; }
+  .gap-counter, .jump-bar { display: none !important; }
+
+  /* Чек-лист: печатается сам по себе */
+  .page-how .print-skip { display: none !important; }
+  .checklist .check { border: 1px solid #000; background: #fff !important; }
+  .checklist input { accent-color: #000; }
+  .progress { display: none; }
+
+  details { border: 0 !important; }
+  details > summary::after { display: none !important; }
+  details > *:not(summary) { display: block !important; }
+}

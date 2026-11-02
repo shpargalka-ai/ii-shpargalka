@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>О проекте — ИИ-Шпаргалка</title>
+  <meta name="description" content="Актуальность, цель и задачи проекта «ИИ-Шпаргалка», чем он отличается от подборки промптов, результаты апробации и планы развития.">
+  <meta name="theme-color" content="#1d6a56">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css">
+  <script>(function(){var d=document.documentElement;try{var t=JSON.parse(localStorage.getItem('iish:theme'));if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}d.setAttribute('data-theme-effective',d.getAttribute('data-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));if(/^https?:$/.test(location.protocol)){var m=document.createElement("link");m.rel="manifest";m.href="manifest.webmanifest";document.head.appendChild(m)}})()</script>
+</head>
+<body class="page-about">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="logo" href="index.html" aria-label="ИИ-Шпаргалка, на главную">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M15 7l2.3 6.4L23.5 16l-6.2 2.6L15 25l-2.3-6.4L6.5 16l6.2-2.6z" style="fill:var(--on-accent)"/><path d="M23.5 5.5l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z" style="fill:var(--on-accent)"/></svg>
+        <span>ИИ-Шпаргалка</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Основное меню">
+        <ul>
+          <li><a href="constructor.html">Конструктор</a></li>
+          <li><a href="prompts.html">Готовые промпты</a></li>
+          <li><a href="how.html">Как это работает</a></li>
+          <li><a href="safety.html">Безопасность</a></li>
+          <li><a href="docs.html">Документы</a></li>
+          <li><a href="about.html" aria-current="page">О проекте</a></li>
+        </ul>
+      </nav>
+      <a class="my-link" href="my.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-save"></use></svg><span class="my-text">Мои</span> <span class="badge" data-my-count data-count="0">0</span></a>
+      <button type="button" class="icon-btn theme-btn" data-theme-toggle aria-label="Переключить тему">
+        <svg class="ico i-sun" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>
+        <svg class="ico i-moon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>
+      </button>
+      <button type="button" class="icon-btn menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <div class="page-head">
+        <h1>О проекте</h1>
+        <p class="lead">«ИИ-Шпаргалка» — сайт-навигатор, который помогает учителю за 5 минут составить хороший запрос к нейросети и получить план игрового урока.</p>
+      </div>
+
+      <section class="section" aria-labelledby="actual-title" style="padding-top:24px">
+        <div class="grid grid-2">
+          <div class="card">
+            <h2 id="actual-title" style="font-size:1.35rem">Актуальность</h2>
+            <p>Игровые формы — квесты, ролевые игры, детективы — повышают вовлечённость учеников, но их подготовка занимает часы. Нейросети могут сократить это время, однако многие учителя их опасаются или получают бесполезные ответы, потому что не знают, как правильно сформулировать запрос.</p>
+            <p style="margin:0">Учителю нужен не ещё один курс по ИИ, а простой инструмент «здесь и сейчас»: с телефона, за перемену, без регистрации.</p>
+          </div>
+          <div class="card">
+            <h2 style="font-size:1.35rem">Цель</h2>
+            <p>Снизить барьер входа в работу с нейросетями и сократить подготовку игрового урока на 2–3 часа за счёт готовых, правильно построенных промптов.</p>
+            <h2 style="font-size:1.35rem">Целевая аудитория</h2>
+            <p style="margin:0">Учителя-предметники 5–11 классов, которые хотят разнообразить уроки, но не умеют или боятся работать с нейросетями. Часто работают с телефона, в спешке и без стабильного интернета.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tasks-title">
+        <div class="card prose" style="max-width:none">
+          <h2 id="tasks-title" style="font-size:1.35rem">Задачи</h2>
+          <ol>
+            <li>Изучить, какие трудности возникают у учителей при работе с нейросетями.</li>
+            <li>Разработать единую схему промпта: роль → контекст → задача → ограничения → формат ответа → критерии качества.</li>
+            <li>Создать конструктор, который собирает промпт из ответов учителя и подсказывает, что дописать.</li>
+            <li>Подготовить базу из 18+ промптов для разных этапов урока и игровых жанров.</li>
+            <li>Объяснить правила безопасной работы с ИИ и персональными данными.</li>
+            <li>Провести апробацию с учителями и оценить экономию времени.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="done-title">
+        <div class="section-head">
+          <h2 id="done-title">Что сделано</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><h3>Конструктор промпта</h3><p style="margin:0" class="muted">Живое превью, подсветка незаполненных мест, кнопки «скопировать» и «открыть нейросеть».</p></div>
+          <div class="card"><h3>База промптов</h3><p style="margin:0" class="muted">18+ промптов с подсказками «что дописать» и примерами «было → стало», фильтры и поиск.</p></div>
+          <div class="card"><h3>Доработка ответа</h3><p style="margin:0" class="muted">Готовые короткие просьбы: упростить, сократить, добавить уровни сложности.</p></div>
+          <div class="card"><h3>Безопасность</h3><p style="margin:0" class="muted">Понятные правила работы с персональными данными и чек-лист проверки ответа ИИ.</p></div>
+          <div class="card"><h3>Работа без интернета</h3><p style="margin:0" class="muted">После первого визита сайт открывается офлайн. Можно скачать папку и открыть с компьютера.</p></div>
+          <div class="card"><h3>Приватность</h3><p style="margin:0" class="muted">Никакой аналитики и серверов: сохранённое хранится только в браузере учителя.</p></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="diff-title">
+        <div class="section-head">
+          <h2 id="diff-title">Чем это отличается от подборки промптов</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="table table-stack">
+            <caption class="visually-hidden">Сравнение с обычной подборкой промптов</caption>
+            <thead>
+              <tr><th scope="col">Обычная подборка</th><th scope="col">ИИ-Шпаргалка</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Обычная подборка">Текст промпта, который надо переписывать под себя</td><td data-label="ИИ-Шпаргалка">Конструктор сам подставляет тему, класс, время и особенности класса</td></tr>
+              <tr><td data-label="Обычная подборка">Непонятно, что именно дописать</td><td data-label="ИИ-Шпаргалка">Незаполненные места подсвечены, к каждому промпту есть подсказки</td></tr>
+              <tr><td data-label="Обычная подборка">Один запрос — и всё</td><td data-label="ИИ-Шпаргалка">Готовые «дожимы» для доработки ответа и чек-лист проверки</td></tr>
+              <tr><td data-label="Обычная подборка">Промпты разной структуры</td><td data-label="ИИ-Шпаргалка">Единая схема: роль → контекст → задача → ограничения → формат → критерии</td></tr>
+              <tr><td data-label="Обычная подборка">Ничего о безопасности</td><td data-label="ИИ-Шпаргалка">Правила работы с персональными данными встроены в каждый промпт</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="test-title">
+        <div class="section-head">
+          <h2 id="test-title">Апробация</h2>
+          <p>Учителя протестировали сайт при подготовке реальных уроков. Без ФИО — только предмет и стаж.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="table table-stack">
+            <caption class="visually-hidden">Результаты апробации</caption>
+            <thead>
+              <tr>
+                <th scope="col">№</th>
+                <th scope="col">Учитель</th>
+                <th scope="col">Что тестировал</th>
+                <th scope="col">Подготовка до</th>
+                <th scope="col">Подготовка после</th>
+                <th scope="col">Отзыв</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- заполнить после тестирования. Пример строки:
+              <tr><td data-label="№">1</td><td data-label="Учитель">учитель истории, 12 лет стажа</td><td data-label="Что тестировал">конструктор, квест на закрепление</td><td data-label="Подготовка до">3 часа</td><td data-label="Подготовка после">40 минут</td><td data-label="Отзыв">…</td></tr>
+              -->
+              <!-- заполнить после тестирования -->
+              <tr><td data-label="№">1</td><td data-label="Учитель"></td><td data-label="Что тестировал"></td><td data-label="Подготовка до"></td><td data-label="Подготовка после"></td><td data-label="Отзыв"></td></tr>
+              <!-- заполнить после тестирования -->
+              <tr><td data-label="№">2</td><td data-label="Учитель"></td><td data-label="Что тестировал"></td><td data-label="Подготовка до"></td><td data-label="Подготовка после"></td><td data-label="Отзыв"></td></tr>
+              <!-- заполнить после тестирования -->
+              <tr><td data-label="№">3</td><td data-label="Учитель"></td><td data-label="Что тестировал"></td><td data-label="Подготовка до"></td><td data-label="Подготовка после"></td><td data-label="Отзыв"></td></tr>
+              <!-- заполнить после тестирования -->
+              <tr><td data-label="№">4</td><td data-label="Учитель"></td><td data-label="Что тестировал"></td><td data-label="Подготовка до"></td><td data-label="Подготовка после"></td><td data-label="Отзыв"></td></tr>
+              <!-- заполнить после тестирования -->
+              <tr><td data-label="№">5</td><td data-label="Учитель"></td><td data-label="Что тестировал"></td><td data-label="Подготовка до"></td><td data-label="Подготовка после"></td><td data-label="Отзыв"></td></tr>
+              <!-- заполнить после тестирования -->
+              <tr><td data-label="№">6</td><td data-label="Учитель"></td><td data-label="Что тестировал"></td><td data-label="Подготовка до"></td><td data-label="Подготовка после"></td><td data-label="Отзыв"></td></tr>
+              <!-- заполнить после тестирования -->
+              <tr><td data-label="№">7</td><td data-label="Учитель"></td><td data-label="Что тестировал"></td><td data-label="Подготовка до"></td><td data-label="Подготовка после"></td><td data-label="Отзыв"></td></tr>
+              <!-- заполнить после тестирования -->
+              <tr><td data-label="№">8</td><td data-label="Учитель"></td><td data-label="Что тестировал"></td><td data-label="Подготовка до"></td><td data-label="Подготовка после"></td><td data-label="Отзыв"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="plans-title">
+        <div class="card prose" style="max-width:none">
+          <h2 id="plans-title" style="font-size:1.35rem">Планы развития</h2>
+          <ul>
+            <li>Расширить базу промптов по итогам апробации: больше предметов и жанров.</li>
+            <li>Добавить промпты для внеурочной деятельности и классных часов.</li>
+            <li>Собрать примеры реальных уроков, проведённых по планам от ИИ (без персональных данных).</li>
+            <li>Провести семинар для методического объединения с QR-кодом на сайт.</li>
+            <li>Добавить раздел для промптов, которыми делятся сами учителя.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tech-title">
+        <div class="callout">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg>
+          <div>
+            <h2 id="tech-title" style="font-size:1.1rem;margin-bottom:.3em">Как сделан сайт</h2>
+            <p>Обычные HTML, CSS и JavaScript, без серверов, баз данных и внешних библиотек. Сайт можно открыть двойным кликом из папки, опубликовать на GitHub Pages и пользоваться без интернета.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-in">
+      <div>
+        <p class="footer-note"><strong>ИИ-Шпаргалка</strong> — помощник учителю: промпты для нейросетей, чтобы быстрее готовить игровые уроки.</p>
+        <p class="footer-note">Сайт не собирает данные: всё, что вы сохраните, хранится только в вашем браузере.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Ссылки в подвале">
+        <a href="safety.html">Безопасность</a>
+        <a href="docs.html">Документы</a>
+        <a href="about.html">О проекте</a>
+        <a href="#" data-feedback-link>Обратная связь</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ИИ-Шпаргалка — план квеста за 5 минут</title>
+  <meta name="description" content="Помощник учителю 5–11 классов: соберите хороший промпт для нейросети и получите план геймифицированного урока или квеста за 5 минут.">
+  <meta name="theme-color" content="#1d6a56">
+  <meta property="og:title" content="ИИ-Шпаргалка — план квеста за 5 минут">
+  <meta property="og:description" content="Конструктор промптов для учителя: план игрового урока с помощью нейросети.">
+  <meta property="og:image" content="assets/og-image.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css">
+  <script>(function(){var d=document.documentElement;try{var t=JSON.parse(localStorage.getItem('iish:theme'));if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}d.setAttribute('data-theme-effective',d.getAttribute('data-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));if(/^https?:$/.test(location.protocol)){var m=document.createElement("link");m.rel="manifest";m.href="manifest.webmanifest";document.head.appendChild(m)}})()</script>
+</head>
+<body class="page-home">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="logo" href="index.html" aria-label="ИИ-Шпаргалка, на главную">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M15 7l2.3 6.4L23.5 16l-6.2 2.6L15 25l-2.3-6.4L6.5 16l6.2-2.6z" style="fill:var(--on-accent)"/><path d="M23.5 5.5l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z" style="fill:var(--on-accent)"/></svg>
+        <span>ИИ-Шпаргалка</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Основное меню">
+        <ul>
+          <li><a href="constructor.html">Конструктор</a></li>
+          <li><a href="prompts.html">Готовые промпты</a></li>
+          <li><a href="how.html">Как это работает</a></li>
+          <li><a href="safety.html">Безопасность</a></li>
+          <li><a href="docs.html">Документы</a></li>
+          <li><a href="about.html">О проекте</a></li>
+        </ul>
+      </nav>
+      <a class="my-link" href="my.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-save"></use></svg><span class="my-text">Мои</span> <span class="badge" data-my-count data-count="0">0</span></a>
+      <button type="button" class="icon-btn theme-btn" data-theme-toggle aria-label="Переключить тему">
+        <svg class="ico i-sun" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>
+        <svg class="ico i-moon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>
+      </button>
+      <button type="button" class="icon-btn menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <div class="wrap">
+        <h1>План квеста за 5 минут</h1>
+        <p class="lead">Соберите промпт для нейросети — и она подготовит вам игровой урок. Для учителей 5–11 классов.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="constructor.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-wand"></use></svg>Собрать промпт</a>
+          <a class="btn btn-outline btn-lg" href="prompts.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-cards"></use></svg>Готовые промпты</a>
+          <a class="btn btn-outline btn-lg" href="how.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-book"></use></svg>Как это работает</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="steps-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="steps-title">4 шага</h2>
+          <p>Регистрироваться не нужно. Сайт ничего не отправляет — он только помогает написать запрос.</p>
+        </div>
+        <ol class="grid grid-4" style="list-style:none;margin:0;padding:0">
+          <li class="card step">
+            <span class="step-num"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-sliders"></use></svg></span>
+            <span class="step-label">Шаг 1</span>
+            <h3>Выберите</h3>
+            <p>Предмет, класс, тему и жанр игры.</p>
+          </li>
+          <li class="card step">
+            <span class="step-num"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-pencil"></use></svg></span>
+            <span class="step-label">Шаг 2</span>
+            <h3>Допишите</h3>
+            <p>Жёлтые места: цель урока и особенности класса.</p>
+          </li>
+          <li class="card step">
+            <span class="step-num"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg></span>
+            <span class="step-label">Шаг 3</span>
+            <h3>Скопируйте</h3>
+            <p>Одна кнопка — и готовый промпт у вас.</p>
+          </li>
+          <li class="card step">
+            <span class="step-num"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"></use></svg></span>
+            <span class="step-label">Шаг 4</span>
+            <h3>Вставьте в нейросеть</h3>
+            <p>GigaChat, Алиса или DeepSeek соберут план. Проверьте его.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ba-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="ba-title">Почему важно, как вы спросите</h2>
+          <p>Одна и та же нейросеть, одна и та же тема. Разница — только в запросе.</p>
+        </div>
+        <div class="ba">
+          <article class="ba-col ba-bad" aria-labelledby="ba-bad-title">
+            <h3 class="ba-title" id="ba-bad-title"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg>Так обычно спрашивают</h3>
+            <p class="ba-label">Запрос</p>
+            <p class="ba-prompt">Придумай квест по истории</p>
+            <p class="ba-label">Что ответила нейросеть</p>
+            <div class="ba-result">
+              «Квест „Путешествие во времени“. 1. Разминка: вопросы о прошлом. 2. Задания по эпохам. 3. Подведение итогов. Победителей наградите!»
+              <ul>
+                <li>Неизвестно, какой класс и какая тема</li>
+                <li>Нет тайминга, заданий и ответов</li>
+                <li>Готовить всё равно придётся самому</li>
+              </ul>
+            </div>
+          </article>
+          <article class="ba-col ba-good" aria-labelledby="ba-good-title">
+            <h3 class="ba-title" id="ba-good-title"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg>Так спрашивают с ИИ-Шпаргалкой</h3>
+            <p class="ba-label">Запрос</p>
+            <p class="ba-prompt">Ты — методист и учитель истории с 15-летним стажем.
+Тема: Древний Египет. Класс: 5, 25 учеников. Время: 40 минут.
+Цель: ученики объясняют, зачем строили пирамиды.
+Нет проектора, парты двигать нельзя.
+Задача: квест в жанре «детектив». Легенда, этапы с таймингом, карточки заданий, ключи с ответами, рефлексия…</p>
+            <p class="ba-label">Что ответила нейросеть</p>
+            <div class="ba-result">
+              Квест «Похищенный папирус» — готовый к уроку:
+              <ul>
+                <li>Легенда на 4 предложения, понятная пятиклассникам</li>
+                <li>5 этапов, тайминг ровно на 40 минут</li>
+                <li>Тексты карточек и ключи с ответами</li>
+                <li>Задание для тех, кто закончил раньше</li>
+                <li>Рефлексия на 3 минуты</li>
+              </ul>
+            </div>
+            <a class="btn btn-primary" href="constructor.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-wand"></use></svg>Собрать такой запрос</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="safe-title">
+      <div class="wrap">
+        <div class="callout">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shield"></use></svg>
+          <div>
+            <h2 id="safe-title" style="font-size:1.15rem;margin-bottom:.3em">Главное правило</h2>
+            <p>Не вводите в нейросеть фамилии, диагнозы и адреса учеников. Пишите «ученик А», «в классе 3 ребёнка с ОВЗ». <a href="safety.html">Подробнее о безопасности</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="share-title">
+      <div class="wrap">
+        <div class="card qr-promo">
+          <div class="qr-box"><canvas data-site-qr width="200" height="200" role="img" aria-label="QR-код со ссылкой на этот сайт"></canvas></div>
+          <div>
+            <h2 id="share-title">Покажите коллегам</h2>
+            <p>Выведите этот QR-код на экран на педсовете или методобъединении: коллеги наведут камеру телефона и сразу откроют сайт.</p>
+            <p class="muted" data-site-qr-note></p>
+            <div class="btn-row">
+              <button type="button" class="btn btn-outline" data-site-qr-big><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-qr"></use></svg>Показать крупно</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-in">
+      <div>
+        <p class="footer-note"><strong>ИИ-Шпаргалка</strong> — помощник учителю: промпты для нейросетей, чтобы быстрее готовить игровые уроки.</p>
+        <p class="footer-note">Сайт не собирает данные: всё, что вы сохраните, хранится только в вашем браузере.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Ссылки в подвале">
+        <a href="safety.html">Безопасность</a>
+        <a href="docs.html">Документы</a>
+        <a href="about.html">О проекте</a>
+        <a href="#" data-feedback-link>Обратная связь</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/qr.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Готовые промпты — ИИ-Шпаргалка</title>
+  <meta name="description" content="База готовых промптов для нейросетей: квесты, ролевые игры, детективы и квизы для уроков в 5–11 классах. Фильтры по предмету, классу, этапу урока и жанру.">
+  <meta name="theme-color" content="#1d6a56">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css">
+  <script>(function(){var d=document.documentElement;try{var t=JSON.parse(localStorage.getItem('iish:theme'));if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}d.setAttribute('data-theme-effective',d.getAttribute('data-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));if(/^https?:$/.test(location.protocol)){var m=document.createElement("link");m.rel="manifest";m.href="manifest.webmanifest";document.head.appendChild(m)}})()</script>
+</head>
+<body class="page-prompts">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="logo" href="index.html" aria-label="ИИ-Шпаргалка, на главную">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M15 7l2.3 6.4L23.5 16l-6.2 2.6L15 25l-2.3-6.4L6.5 16l6.2-2.6z" style="fill:var(--on-accent)"/><path d="M23.5 5.5l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z" style="fill:var(--on-accent)"/></svg>
+        <span>ИИ-Шпаргалка</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Основное меню">
+        <ul>
+          <li><a href="constructor.html">Конструктор</a></li>
+          <li><a href="prompts.html" aria-current="page">Готовые промпты</a></li>
+          <li><a href="how.html">Как это работает</a></li>
+          <li><a href="safety.html">Безопасность</a></li>
+          <li><a href="docs.html">Документы</a></li>
+          <li><a href="about.html">О проекте</a></li>
+        </ul>
+      </nav>
+      <a class="my-link" href="my.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-save"></use></svg><span class="my-text">Мои</span> <span class="badge" data-my-count data-count="0">0</span></a>
+      <button type="button" class="icon-btn theme-btn" data-theme-toggle aria-label="Переключить тему">
+        <svg class="ico i-sun" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>
+        <svg class="ico i-moon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>
+      </button>
+      <button type="button" class="icon-btn menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <div class="page-head">
+        <h1>Готовые промпты</h1>
+        <p class="lead">Выберите подходящий, скопируйте и допишите места, выделенные жёлтым. Или откройте его в конструкторе — там поля подставятся сами.</p>
+      </div>
+
+      <form class="card filters-card" id="filters" role="search" aria-label="Фильтры промптов" onsubmit="return false">
+        <div class="field">
+          <label for="q">Поиск</label>
+          <div class="search-box">
+            <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-search"></use></svg>
+            <input class="input input-search" id="q" name="q" type="search" placeholder="Например: детектив, Египет, рефлексия">
+          </div>
+        </div>
+        <div class="filters">
+          <div class="field">
+            <label for="f-subject">Предмет</label>
+            <select class="select" id="f-subject" name="subject"></select>
+          </div>
+          <div class="field">
+            <label for="f-grade">Класс</label>
+            <select class="select" id="f-grade" name="grade"></select>
+          </div>
+          <div class="field">
+            <label for="f-stage">Этап урока</label>
+            <select class="select" id="f-stage" name="stage"></select>
+          </div>
+          <div class="field">
+            <label for="f-genre">Жанр</label>
+            <select class="select" id="f-genre" name="genre"></select>
+          </div>
+          <div class="field">
+            <label for="f-time">Время</label>
+            <select class="select" id="f-time" name="time"></select>
+          </div>
+        </div>
+        <label class="check" style="display:inline-flex;margin-top:12px">
+          <input type="checkbox" id="f-fav" name="fav">
+          <span>Только избранное</span>
+        </label>
+      </form>
+
+      <div class="results-bar">
+        <p class="results-count" id="results-count" role="status" aria-live="polite"></p>
+        <button type="button" class="btn btn-outline btn-sm" id="reset-filters"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-reset"></use></svg>Сбросить фильтры</button>
+      </div>
+
+      <div class="prompt-list" id="prompt-list"></div>
+
+      <div class="empty" id="empty" hidden>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-search"></use></svg>
+        <h2 style="font-size:1.3rem">Ничего не нашлось</h2>
+        <p id="empty-text">Попробуйте убрать один из фильтров — или соберите свой промпт в конструкторе.</p>
+        <div class="btn-row" style="justify-content:center">
+          <button type="button" class="btn btn-primary" id="empty-reset"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-reset"></use></svg>Сбросить фильтры</button>
+          <a class="btn btn-outline" href="constructor.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-wand"></use></svg>Собрать свой</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-in">
+      <div>
+        <p class="footer-note"><strong>ИИ-Шпаргалка</strong> — помощник учителю: промпты для нейросетей, чтобы быстрее готовить игровые уроки.</p>
+        <p class="footer-note">Сайт не собирает данные: всё, что вы сохраните, хранится только в вашем браузере.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Ссылки в подвале">
+        <a href="safety.html">Безопасность</a>
+        <a href="docs.html">Документы</a>
+        <a href="about.html">О проекте</a>
+        <a href="#" data-feedback-link>Обратная связь</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/prompts.js"></script>
+</body>
+</html>

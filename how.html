@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Как это работает — ИИ-Шпаргалка</title>
+  <meta name="description" content="Четыре шага от темы урока до готового плана квеста, словарь терминов без сложных слов и чек-лист проверки плана, который выдала нейросеть.">
+  <meta name="theme-color" content="#1d6a56">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css">
+  <script>(function(){var d=document.documentElement;try{var t=JSON.parse(localStorage.getItem('iish:theme'));if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}d.setAttribute('data-theme-effective',d.getAttribute('data-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));if(/^https?:$/.test(location.protocol)){var m=document.createElement("link");m.rel="manifest";m.href="manifest.webmanifest";document.head.appendChild(m)}})()</script>
+</head>
+<body class="page-how">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="logo" href="index.html" aria-label="ИИ-Шпаргалка, на главную">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="9" style="fill:var(--accent)"/><path d="M15 7l2.3 6.4L23.5 16l-6.2 2.6L15 25l-2.3-6.4L6.5 16l6.2-2.6z" style="fill:var(--on-accent)"/><path d="M23.5 5.5l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z" style="fill:var(--on-accent)"/></svg>
+        <span>ИИ-Шпаргалка</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Основное меню">
+        <ul>
+          <li><a href="constructor.html">Конструктор</a></li>
+          <li><a href="prompts.html">Готовые промпты</a></li>
+          <li><a href="how.html" aria-current="page">Как это работает</a></li>
+          <li><a href="safety.html">Безопасность</a></li>
+          <li><a href="docs.html">Документы</a></li>
+          <li><a href="about.html">О проекте</a></li>
+        </ul>
+      </nav>
+      <a class="my-link" href="my.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-save"></use></svg><span class="my-text">Мои</span> <span class="badge" data-my-count data-count="0">0</span></a>
+      <button type="button" class="icon-btn theme-btn" data-theme-toggle aria-label="Переключить тему">
+        <svg class="ico i-sun" aria-hidden="true" focusable="false"><use href="#i-sun"></use></svg>
+        <svg class="ico i-moon" aria-hidden="true" focusable="false"><use href="#i-moon"></use></svg>
+      </button>
+      <button type="button" class="icon-btn menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <div class="page-head print-skip">
+        <h1>Как это работает</h1>
+        <p class="lead">От темы урока до готового плана — четыре шага и 5–10 минут. Технических знаний не нужно.</p>
+      </div>
+
+      <section class="section print-skip" aria-labelledby="steps-title" style="padding-top:24px">
+        <h2 id="steps-title" class="visually-hidden">Четыре шага</h2>
+        <ol class="steps-list">
+          <li>
+            <h3>Выберите основу</h3>
+            <p>Откройте <a href="constructor.html">конструктор</a> — он соберёт промпт из ваших ответов. Или возьмите <a href="prompts.html">готовый промпт</a> из базы: там 18+ вариантов для разных этапов урока и жанров.</p>
+          </li>
+          <li>
+            <h3>Расскажите о своём уроке</h3>
+            <p>Тема, класс, сколько минут, чего хотите добиться. И особенности: нет проектора, большой класс, есть дети с ОВЗ. Места, которые лучше дописать, подсвечены жёлтым.</p>
+            <p><strong>Важно:</strong> никаких фамилий, диагнозов и адресов учеников. <a href="safety.html">Почему</a></p>
+          </li>
+          <li>
+            <h3>Скопируйте и отправьте нейросети</h3>
+            <p>Нажмите «Скопировать» или сразу «Открыть GigaChat / Алиса AI / DeepSeek» — промпт скопируется сам. Вставьте его в окно чата и отправьте. Если нейросеть задаст уточняющие вопросы — ответьте на них в том же чате.</p>
+          </li>
+          <li>
+            <h3>Проверьте и доработайте</h3>
+            <p>Первый ответ — это черновик. Проверьте его по <a href="#checklist-title">чек-листу ниже</a>. Не понравилось — попросите исправить: в конструкторе есть готовые кнопки «Сократи до 25 минут», «Упрости под 5–6 класс» и другие.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section print-skip" aria-labelledby="formula-title">
+        <div class="section-head">
+          <h2 id="formula-title">Из чего состоит хороший промпт</h2>
+          <p>Все промпты на сайте построены по одной схеме. Её легко запомнить и использовать самостоятельно.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><span class="step-label">1. Роль</span><p style="margin:0">«Ты — методист и учитель истории с 15-летним стажем»</p></div>
+          <div class="card"><span class="step-label">2. Контекст</span><p style="margin:0">Тема, класс, сколько учеников и минут, особенности класса</p></div>
+          <div class="card"><span class="step-label">3. Задача</span><p style="margin:0">«Разработай квест в жанре „детектив“ на закрепление темы»</p></div>
+          <div class="card"><span class="step-label">4. Ограничения</span><p style="margin:0">«Ровно 40 минут, без интернета, подготовка — не больше 30 минут»</p></div>
+          <div class="card"><span class="step-label">5. Формат ответа</span><p style="margin:0">Легенда, таблица этапов, карточки, ключи, рефлексия</p></div>
+          <div class="card"><span class="step-label">6. Критерии качества</span><p style="margin:0">«Каждый ученик занят, задания проверяют цель, а не эрудицию»</p></div>
+        </div>
+      </section>
+
+      <section class="section print-skip" aria-labelledby="glossary-title">
+        <div class="section-head">
+          <h2 id="glossary-title">Словарь без сложных слов</h2>
+          <p>Шесть слов, которых достаточно, чтобы уверенно работать с нейросетью.</p>
+        </div>
+        <dl class="glossary">
+          <div>
+            <dt>Промпт</dt>
+            <dd>Ваш запрос к нейросети — текст, который вы ей пишете. Чем понятнее запрос, тем полезнее ответ.</dd>
+          </div>
+          <div>
+            <dt>Контекст</dt>
+            <dd>Всё, что нейросеть должна знать о вашей ситуации: класс, тема, сколько учеников, что есть в кабинете. Без контекста она отвечает «в среднем».</dd>
+          </div>
+          <div>
+            <dt>Роль</dt>
+            <dd>Кем нейросеть должна себя представить, например «опытным методистом». Так ответ получается в нужном стиле и на нужном уровне.</dd>
+          </div>
+          <div>
+            <dt>Ограничение</dt>
+            <dd>Что обязательно или чего делать нельзя: «ровно 40 минут», «без интернета». Ограничения помогают получить план, который реально провести.</dd>
+          </div>
+          <div>
+            <dt>Итерация</dt>
+            <dd>Повторная просьба в том же чате: «сократи», «упрости». Хороший план обычно получается за 2–3 таких шага.</dd>
+          </div>
+          <div>
+            <dt>Галлюцинация</dt>
+            <dd>Когда нейросеть уверенно пишет неправду: путает даты, выдумывает факты и цитаты. Поэтому факты перед уроком всегда нужно проверять.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section" aria-labelledby="checklist-title">
+        <div class="print-header print-only">ИИ-Шпаргалка · чек-лист проверки плана урока от нейросети</div>
+        <div class="card">
+          <h2 id="checklist-title">Чек-лист: проверьте план от ИИ</h2>
+          <p class="muted print-skip">Отмечайте пункты по мере проверки. Отметки сохранятся в этом браузере.</p>
+          <div class="progress no-print" data-checklist-progress role="progressbar" aria-label="Проверено пунктов" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0"><div class="progress-bar" data-checklist-bar></div></div>
+          <p class="progress-text no-print" data-checklist-text aria-live="polite"></p>
+          <ul class="checklist" data-checklist>
+            <li><label class="check"><input type="checkbox" value="goal"><span>Цель соответствует теме урока</span></label></li>
+            <li><label class="check"><input type="checkbox" value="timing"><span>Тайминг реалистичный, сумма минут сходится</span></label></li>
+            <li><label class="check"><input type="checkbox" value="roles"><span>Роли распределены, никто не сидит без дела</span></label></li>
+            <li><label class="check"><input type="checkbox" value="keys"><span>Есть ключи и правильные ответы</span></label></li>
+            <li><label class="check"><input type="checkbox" value="level"><span>Задания посильны этому классу</span></label></li>
+            <li><label class="check"><input type="checkbox" value="safety"><span>На уроке безопасно: нет беготни, опасных предметов и обидных ролей</span></label></li>
+            <li><label class="check"><input type="checkbox" value="facts"><span>Нет фактических ошибок — даты, формулы, имена проверены</span></label></li>
+            <li><label class="check"><input type="checkbox" value="reflex"><span>Есть рефлексия в конце</span></label></li>
+          </ul>
+          <div class="btn-row" style="margin-top:16px">
+            <button type="button" class="btn btn-outline" data-checklist-print><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-print"></use></svg>Распечатать чек-лист</button>
+            <button type="button" class="btn btn-outline" data-checklist-reset><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-reset"></use></svg>Снять все отметки</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-in">
+      <div>
+        <p class="footer-note"><strong>ИИ-Шпаргалка</strong> — помощник учителю: промпты для нейросетей, чтобы быстрее готовить игровые уроки.</p>
+        <p class="footer-note">Сайт не собирает данные: всё, что вы сохраните, хранится только в вашем браузере.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Ссылки в подвале">
+        <a href="safety.html">Безопасность</a>
+        <a href="docs.html">Документы</a>
+        <a href="about.html">О проекте</a>
+        <a href="#" data-feedback-link>Обратная связь</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
